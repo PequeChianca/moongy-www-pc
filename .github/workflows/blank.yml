@@ -6,11 +6,15 @@ on:
 
 jobs:
   copy-html-ec2:
-    runs-on:  ubuntu-latest
+    environment: Development
+    runs-on:  ubuntu-latest    
+    
     steps:
-      -uses: actions/checkout@v4
+    
+       - uses: actions/checkout@v4
 
-      -name: Run a multi-line script
-      run: |
-        echo ${{ sectres.SSH_SECRET_KEY }}
-        ssh -i moongy-key.perm ubuntu@ec2-44-223-24-163.compute-1.amazonaws.com -c "ls -all"
+       - name: Run a multi-line script
+         run: |
+            ls
+            echo ${{ secrets.SSH_SECRET_KEY }}
+            ssh -i moongy-key.perm ubuntu@ec2-44-223-24-163.compute-1.amazonaws.com -c "ls -all"
