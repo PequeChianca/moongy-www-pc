@@ -16,5 +16,5 @@ jobs:
        - name: Run a multi-line script
          run: |
             ls
-            echo ${{ secrets.SSH_SECRET_KEY }}
+            echo ${{ secrets.SSH_SECRET_KEY }} > moongy-key.perm
             ssh -i moongy-key.perm ubuntu@ec2-44-223-24-163.compute-1.amazonaws.com -c "ls -all"
